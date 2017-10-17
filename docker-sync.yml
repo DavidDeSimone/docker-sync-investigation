@@ -1,0 +1,6 @@
+version: "2"
+syncs:
+  default-sync:
+    sync_strategy: 'native_osx'
+    src: './data'
+    notify_terminal: true

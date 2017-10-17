@@ -1,0 +1,37 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+     - "5000:5000"
+    volumes:
+     - default-sync:/app/data:nocopy
+  redis:
+    image: "redis:alpine"
+
+  backup:
+    build: .
+    ports:
+     - "5001:5000"
+    volumes:
+     - default-sync:/app/data:nocopy
+
+  backup_bx2:
+    build: .
+    ports:
+     - "5002:5000"
+    volumes:
+     - default-sync:/app/data:nocopy
+
+  backup_bx3:
+    build: .
+    ports:
+     - "5002:5000"
+    volumes:
+     - default-sync:/app/data:nocopy
+
+
+
+volumes:
+  default-sync:
+    external: true
